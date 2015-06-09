@@ -8,6 +8,6 @@
         
         <property name="show_sql">true</property>
        
-        <mapping resource="com/skillsexchange/model/usercard.hbm.xml"/>
+        <mapping resource="com/skillsexchange/model/user.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

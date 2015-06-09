@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skillsexchange.model.UserCard;
+import com.skillsexchange.model.User;
 
 @Component
 public class UserDAO {
@@ -20,10 +20,8 @@ public class UserDAO {
 	}
 	
 	@Transactional
-	public List<UserCard> getUsers() {
-		@SuppressWarnings("unchecked")
-		List<UserCard> result = (List<UserCard>) getSession().createCriteria(UserCard.class).list();
-		
-		return result;
+	public User getUser(int id){
+		User user = (User) getSession().get(User.class, id);
+		return user;
 	}
 }

@@ -10,14 +10,6 @@
 <body>
 
 
-<c:forEach items="${users}" var="user">
-		<tr>
-			<c:out value="${user.id}"/> 
-			<c:out value="${user.userName}"/> 
-			<c:out value="${user.name}"/> 
-			<c:out value="${user.surname}"/><br>
-		</tr>
-	</c:forEach>
 
 </body>
 </html>

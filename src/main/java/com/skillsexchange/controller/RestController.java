@@ -13,11 +13,11 @@ public class RestController {
 
 	@Autowired
 	private UserDAO userDao;
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
-		model.addAttribute("users", userDao.getUsers());
-		return "index";
+		model.addAttribute("user", userDao.getUser(1));
+		return "profile";
 	}
 
 }
