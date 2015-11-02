@@ -18,6 +18,9 @@
 		<c:out value="${user.city}" />
 		<c:out value="${user.summary}" />
 	</tr>
+	<c:forEach items="${user.teach}" var="subject">
+	<br><c:out value="${subject.title}"/>
+	</c:forEach>
 
 </body>
 </html>

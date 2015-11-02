@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.skillsexchange.model">
+
+	<class name="Student" table="students">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<many-to-one name="user_id" class="com.skillsexchange.model.User" fetch="select" insert="false" update="false">
+            <column name="id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subject_id" class="com.skillsexchange.model.Subject" fetch="select" insert="false" update="false">
+            <column name="id" not-null="true" />
+        </many-to-one>
+		<!-- <property name="user_id" column="user_id" />
+		<property name="subject_id" column="subject_id" /> -->
+	</class>
+
+</hibernate-mapping>

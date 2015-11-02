@@ -8,6 +8,14 @@
         
         <property name="show_sql">true</property>
        
-        <mapping resource="com/skillsexchange/model/user.hbm.xml"/>
+        <mapping class="com.skillsexchange.model.User"/>
+        <mapping class="com.skillsexchange.model.Student"/>
+        <mapping class="com.skillsexchange.model.Teacher"/>
+        <mapping class="com.skillsexchange.model.Subject"/>
+        
+        <!-- <mapping resource="com/skillsexchange/model/user.hbm.xml"/>
+        <mapping resource="com/skillsexchange/model/student.hbm.xml"/>
+        <mapping resource="com/skillsexchange/model/teacher.hbm.xml"/>
+        <mapping resource="com/skillsexchange/model/subject.hbm.xml"/> -->
     </session-factory>
 </hibernate-configuration>

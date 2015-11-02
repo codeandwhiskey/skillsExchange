@@ -1,21 +1,47 @@
 package com.skillsexchange.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "USERS")
 public class User {
+
+	@Id
+	@GeneratedValue
 	private int id;
-	
+
 	private String first_name;
 	private String last_name;
-	
 	private char sex;
 	private Date birth;
-	
 	private String country;
 	private String city;
-	
 	private String summary;
+
+//	@OneToMany(mappedBy = "user", cascade = { CascadeType.PERSIST,
+//			CascadeType.REMOVE })
+//	@org.hibernate.annotations.Cascade({ org.hibernate.annotations.CascadeType.SAVE_UPDATE })
+//	@JoinColumn(name = "ID")
+	
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="teacher")
+	private Set<Subject> teach = new HashSet<Subject>();
+
+//	@OneToMany(mappedBy = "user", cascade = { CascadeType.PERSIST,
+//			CascadeType.REMOVE })
+//	@org.hibernate.annotations.Cascade({ org.hibernate.annotations.CascadeType.SAVE_UPDATE })
+//	@JoinColumn(name = "ID")
+	
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="student")
+	private Set<Subject> learn = new HashSet<Subject>();
 
 	public int getId() {
 		return id;
@@ -79,6 +105,22 @@ public class User {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public Set<Subject> getTeach() {
+		return teach;
+	}
+
+	public void setTeach(Set<Subject> teach) {
+		this.teach = teach;
+	}
+
+	public Set<Subject> getLearn() {
+		return learn;
+	}
+
+	public void setLearn(Set<Subject> learn) {
+		this.learn = learn;
 	}
 
 }
