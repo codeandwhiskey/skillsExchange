@@ -14,13 +14,8 @@ public class Student {
 	@GeneratedValue
 	private int id;
 
-	@ManyToOne
-	@JoinColumn(name = "ID")
-	private User user;
-
-	@ManyToOne
-	@JoinColumn(name = "ID")
-	private Subject subject;
+	private int user_id;
+	private int subject_id;
 
 	public int getId() {
 		return id;
@@ -30,20 +25,20 @@ public class Student {
 		this.id = id;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public Subject getSubject() {
-		return subject;
+	public int getSubject_id() {
+		return subject_id;
 	}
 
-	public void setSubject(Subject subject) {
-		this.subject = subject;
+	public void setSubject_id(int subject_id) {
+		this.subject_id = subject_id;
 	}
 
 }
