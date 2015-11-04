@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
        
         <mapping class="com.skillsexchange.model.User"/>
         <mapping class="com.skillsexchange.model.Student"/>

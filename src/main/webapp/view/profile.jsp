@@ -17,10 +17,14 @@
 		<c:out value="${user.country}" />
 		<c:out value="${user.city}" />
 		<c:out value="${user.summary}" />
-	</tr>
+	</tr> <br>
+	I can teach: 
 	<c:forEach items="${user.teach}" var="subject">
-	<br><c:out value="${subject.title}"/>
-	</c:forEach>
-
+	<c:out value="${subject.title}"/> 
+	</c:forEach> <br>
+	I want to learn: 
+	<c:forEach items="${user.learn}" var="subject">
+	<c:out value="${subject.title}"/> 
+	</c:forEach> <br>
 </body>
 </html>
