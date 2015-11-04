@@ -3,8 +3,6 @@ package com.skillsexchange.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +11,7 @@ public class Student {
 	@Id
 	@GeneratedValue
 	private int id;
-
+	
 	private int user_id;
 	private int subject_id;
 
@@ -40,5 +38,5 @@ public class Student {
 	public void setSubject_id(int subject_id) {
 		this.subject_id = subject_id;
 	}
-
+	
 }
