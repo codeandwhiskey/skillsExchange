@@ -20,7 +20,7 @@ public class Subject {
 	private String title;
 	private int category_id;
 
-	@ManyToMany
+	@ManyToMany 
 	@JoinTable(name = "TEACHER", joinColumns = { @JoinColumn(name = "SUBJECT_ID") }, inverseJoinColumns = { @JoinColumn(name = "USER_ID") })
 	private Set<User> teacher = new HashSet<User>();
 

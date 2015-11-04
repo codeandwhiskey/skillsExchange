@@ -1,5 +1,7 @@
 package com.skillsexchange.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skillsexchange.dao.SearchDAO;
 import com.skillsexchange.dao.UserDAO;
+import com.skillsexchange.model.Subject;
 
 @Controller
 public class RestController {
@@ -33,8 +36,9 @@ public class RestController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchResults(ModelMap model, @ModelAttribute("teach") String teach, @ModelAttribute("learn") String learn) {
-		model.addAttribute("subjects", searchDao.getSubjects());
-		model.addAttribute("users", searchDao.getUsers(teach, learn));
+		List <Subject> subjects = searchDao.getSubjects();
+		model.addAttribute("subjects", subjects);
+		model.addAttribute("users", searchDao.getUsers(subjects, teach, learn));
 		return "search";
 	}
 
