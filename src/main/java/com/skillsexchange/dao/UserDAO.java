@@ -22,4 +22,13 @@ public class UserDAO {
 		User user = (User) getSession().get(User.class, id);
 		return user;
 	}
+	
+	@Transactional
+	public void updateUser(User user) {
+		getSession().update(user);
+	}
+
+	public void addUser(User user) {
+		getSession().save(user);		
+	}
 }
