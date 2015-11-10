@@ -12,6 +12,7 @@
         <mapping class="com.skillsexchange.model.Student"/>
         <mapping class="com.skillsexchange.model.Teacher"/>
         <mapping class="com.skillsexchange.model.Subject"/>
+        <mapping class="com.skillsexchange.model.Authentication"/>
         
         <!-- <mapping resource="com/skillsexchange/model/user.hbm.xml"/>
         <mapping resource="com/skillsexchange/model/student.hbm.xml"/>

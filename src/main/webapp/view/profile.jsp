@@ -25,6 +25,8 @@
 		<c:out value="${subject.title}" />
 	</c:forEach>
 	<br>
-	<a href="<c:url value='/edit/${user.id}' />" >Edit</a>
+	<a href="<c:url value='/edit/${user.id}' />">Edit</a>
+	<br>
+	
 </body>
 </html>

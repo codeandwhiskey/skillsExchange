@@ -38,7 +38,7 @@ public class SearchDAO {
 		query.setParameter("title", title);
 		return (Subject) query.uniqueResult();
 	}
-
+	
 	@Transactional
 	public List<User> getUsers(List<Subject> subjects, String teach,
 			String learn) {
@@ -53,5 +53,18 @@ public class SearchDAO {
 		}
 		return result;
 	}
-
+	
+	@Transactional
+	public int getUserID(String login, String password) {
+		Query query = getSession().createQuery(
+				"SELECT user_id "
+				+ "FROM Authentication "
+				+ "WHERE login = :login AND password = :password ");
+		query.setParameter("login", login);
+		query.setParameter("password", password);
+		if(query.uniqueResult() == null){
+			return 0;
+		}
+		return (int) query.uniqueResult();
+	}
 }

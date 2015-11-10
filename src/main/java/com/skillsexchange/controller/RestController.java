@@ -25,9 +25,33 @@ public class RestController {
 	@Autowired
 	private SearchDAO searchDao;
 	
+	@Autowired
+	private User user;
+	
+	private String message;
+	
 	@RequestMapping(value = "/")
+	public String start(ModelMap model) {
+		model.addAttribute("message", message);
+		return "index";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String getUserByLogin(ModelMap model, @ModelAttribute("uname") String uname, @ModelAttribute("password") String password) {
+		user = userDao.getUser(searchDao.getUserID(uname, password));
+		if(user == null){
+			message = "username or password is incorrect";
+			return "redirect:/";
+		}
+		message = "";
+		model.addAttribute("user", user);
+		return "profile";
+		
+	}
+	
+	@RequestMapping(value = "/profile")
 	public String listUsers(ModelMap model) {
-		model.addAttribute("user", userDao.getUser(1));
+		model.addAttribute("user", user);
 		return "profile";
 	}
 	
